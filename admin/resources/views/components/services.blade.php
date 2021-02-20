@@ -17,13 +17,7 @@
                     </thead>
                     <tbody id="serviceTable">
 
-                        <!-- <tr>
-                            <th class="th-sm"><img class="table-img" src="images/Knowledge.svg"></th>
-                            <th class="th-sm">আইটি কোর্স</th>
-                            <th class="th-sm">মোবাইল এবং ওয়েব এপ্লিকেশন ডেভেলপমেন্ট</th>
-                            <th class="th-sm"><a href=""><i class="fas fa-edit"></i></a></th>
-                            <th class="th-sm"><a href=""><i class="fas fa-trash-alt"></i></a></th>
-                        </tr> -->
+                        
                         
                     </tbody>
                 </table>
@@ -52,18 +46,40 @@
 @endsection()
 
 
-
+<!--  service delete modal  -->
 <div class="modal fade" id="serviceDeleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-body text-center mt-3">
         <h5>Do you want to delete!</h5>
-        <span id="serviceDataId"></span>
+        <span id="serviceDeleteDataId"></span>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">NO</button>
         <button id="serviceConfirmDelete" type="button" class="btn btn-danger">YES</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- service edit modal -->
+
+<div class="modal fade" id="serviceEditModal" class="" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body text-center mt-3">
+        <span id="serviceEditDataId"></span>
+        <h5>Service Details</h5>
+        <input class="form-control" type="text" id="serviceName"/><br/>
+        <input class="form-control" type="text" id="serviceDescription"/><br/>
+        <input class="form-control" type="text" id="serviceImageUrl"/><br/>
+      </div>
+      <div class="modal-footer">
+        <button id="serviceEditCancel" type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button id="serviceConfirmEdit" type="button" class="btn btn-danger">Save</button>
       </div>
     </div>
   </div>

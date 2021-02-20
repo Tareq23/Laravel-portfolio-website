@@ -11,7 +11,9 @@ class Services extends Model
     protected $table="services";
     protected $primaryKey = 'id';
     protected $keyType = 'int';
-    public $increment = true;
-    public $timestamp = false;
-
+    public $incrementing = true;
+    public $timestamps = false;
+    protected $fillable = [
+        'name','description','image'
+    ];  
 }
