@@ -18,10 +18,33 @@ class ServiceController extends Controller
         $result = json_encode(Services::all());
         return $result;
     }
+
+
+
+    public function singleServiceAdd(Request $req)
+    {
+        $name = $req->input('name');
+        $desc = $req->input('desc');
+        $image = $req->input('image');
+        $data = [
+            'name' => $name,
+            'description' => $desc,
+            'image' => $image
+        ];
+        $result = Services::insert($data);
+        if($result==1)
+        {
+            return response()->json([
+                'message' => "Data Add Successfully"
+            ]);
+        }
+        return response()->json([
+            'message' => "something went wrong"
+        ]);
+    }
     public function serviceDelete(Request $req)
     {
         $id = $req->input('idd');
-        //echo $id;
         $result = Services::where('id',$id)->delete();
         if($result==true)
         {
@@ -44,9 +67,6 @@ class ServiceController extends Controller
         $id = $req->input('id');
         $result = Services::find($id);
         return json_encode($result);
-        // return response()->json(
-        //     $result
-        // );
     }
     public function singleServiceUpdate(Request $req)
     {
@@ -56,11 +76,6 @@ class ServiceController extends Controller
         $image = $req->input('image');
 
         try{
-            // $result = Services::where('id',$id)->update([
-            //     'description' => $desc,
-            //     'image' => $image,
-            //     'name' => $name,
-            // ]);
             $service = Services::find($id);
             $service->name=$name;
             $service->description =$desc;
@@ -71,20 +86,12 @@ class ServiceController extends Controller
                 return response()->json([
                     "status" => 200,
                     'message' => "Data Successfully Updated",
-                    // 'service' => $service,
-                    'result' => $result,
                 ]);
             }
             else{
                 return response()->json([
                     "status" => 500,
                     'message' => "Update failed!",
-                    // 'result' => $result,
-                    // 'id' => $id,
-                    // 'name'=>$name,
-                    // 'desc'=>$desc,
-                    // 'image'=>$image,
-                    // 'service'=>$service,
                 ]);
                 
             }

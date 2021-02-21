@@ -20,6 +20,7 @@ Route::get('/getServicesData',[ServiceController::class,'getServiceAll']);
 Route::post('/serviceDelete',[ServiceController::class,'serviceDelete']);
 Route::post('/serviceDetails',[ServiceController::class,'singleServiceGet']);
 Route::post('/serviceEdit',[ServiceController::class,'singleServiceUpdate']);
+Route::post('/serviceAdd',[ServiceController::class,'singleServiceAdd']);
 
 
 
