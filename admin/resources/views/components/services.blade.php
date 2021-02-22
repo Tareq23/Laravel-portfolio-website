@@ -1,5 +1,6 @@
 @extends('layout.app')
 
+@section('title','Admin | Service Page')
 
 @section('content')
     <div id="serviceDataDiv" class="container d-none">
@@ -122,7 +123,7 @@ function getServicesData() {
 
                 if (response.status == 200) {
 
-
+                    
                     $("#serviceDataDiv").removeClass("d-none");
                     $("#loaderDiv").addClass("d-none");
 
@@ -139,15 +140,15 @@ function getServicesData() {
                             '<td><a class="serviceDeleteBtn" data-id=' + jsonData[idx].id + ' data-toggle="modal" ><i class="fas fa-trash-alt"></i></a></td>'
                         ).appendTo('#serviceTable');
                     });
+                    
                     $(".serviceDeleteBtn").click(function (event) {
                         var deleteId;
                         event.preventDefault();
-                        deleteId = $(this).attr('data-id');
+                        deleteId = $(this).data('id');
 
                         $("#serviceDeleteDataId").attr('data-id', deleteId);
                         $("#serviceDeleteModal").modal('show');
                     });
-
 
                     $(".serviceEditBtn").click(function () {
 
@@ -318,13 +319,21 @@ function serviceEdit(serviceId, serviceName, serviceDesc, serviceImg) {
 
 
 /* DELETE */
+// $(".serviceDeleteBtn").click(function (event) {
+//     var deleteId;
+//     event.preventDefault();
+//     deleteId = $(this).data('id');
+
+//     $("#serviceDeleteDataId").attr('data-id', deleteId);
+//     $("#serviceDeleteModal").modal('show');
+// });
+
 $(document).ready(function () {
     $("#serviceConfirmDelete").click(function (event) {
         event.preventDefault();
-        deleteId = $("#serviceDeleteDataId").attr('data-id');
-        //  console.log(" from get  : "+id);
+        var deleteId = $("#serviceDeleteDataId").attr('data-id');
+        console.log(deleteId);
         serviceDataDelete(deleteId);
-        $("#serviceDeleteDataId").removeAttr('data-id');
     });
 });
 
@@ -332,7 +341,6 @@ $(document).ready(function () {
 
 
 function serviceDataDelete(serviceId) {
-    $(document).ready(function () {
         $("#serviceConfirmDelete").html('<div class="spinner-border" role="status"></div>');
         axios.post('/serviceDelete', { idd: serviceId })
             .then(response => {
@@ -344,6 +352,7 @@ function serviceDataDelete(serviceId) {
                     getServicesData();
                 }
                 else {
+                    $("#serviceConfirmDelete").html('yes');
                     $("#serviceDeleteModal").modal('hide');
                     toastr.error(response.data.message);
                 }
@@ -351,8 +360,6 @@ function serviceDataDelete(serviceId) {
             .catch(error => {
                 $("#serviceDeleteModal").modal('hide');
             });
-    })
-
 }
     </script>
 @endsection()

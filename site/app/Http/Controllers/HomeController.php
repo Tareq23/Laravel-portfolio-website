@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Visitor;
 use App\Models\Services;
+use App\Models\Courses;
 
 class HomeController extends Controller
 {
@@ -18,8 +19,11 @@ class HomeController extends Controller
             'visit_time' => $dateTime
         ]);
 
-        $servicesData = json_decode(Services::all(),true);
-
-        return view('home',['servicesData'=>$servicesData]);
+        $servicesData = json_encode(Services::all(),true);
+        $courseData = json_encode(Courses::orderBy('id','desc')->limit(6)->get());
+        return view('home',[
+            'servicesData'=>json_decode($servicesData),
+            'coursesData'=>json_decode($courseData),
+        ]);
     }
 }

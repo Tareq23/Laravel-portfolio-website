@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Services extends Model
+class Courses extends Model
 {
     use HasFactory;
-    protected $table="services";
+    protected $table="courses";
     protected $primaryKey = 'id';
     protected $keyType = 'int';
-    public $increment = true;
+    public $incrementing = true;
     public $timestamps = false;
 }

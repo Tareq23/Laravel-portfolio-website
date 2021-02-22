@@ -1,5 +1,5 @@
 @extends('layout.app')
-
+@section('title','Admin | Visitor Page')
 @section('content')
 
     <div class="container">

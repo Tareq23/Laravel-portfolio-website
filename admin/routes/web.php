@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\VisitorController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\CourseController;
 
 
 
@@ -22,6 +23,14 @@ Route::post('/serviceDetails',[ServiceController::class,'singleServiceGet']);
 Route::post('/serviceEdit',[ServiceController::class,'singleServiceUpdate']);
 Route::post('/serviceAdd',[ServiceController::class,'singleServiceAdd']);
 
+
+Route::get('/course',[CourseController::class,'courseIndex']);
+Route::get('/allCourse',[CourseController::class,'allCourse']);
+Route::post('/courseDtails',[CourseController::class,'courseDetials']);
+Route::post('/courseAdd',[CourseController::class,'courseAdd']);
+Route::post('/courseUpdate',[CourseController::class,'courseUpdate']);
+Route::post('/courseDelete',[CourseController::class,'courseDelete']);
+// Route::post('/')
 
 
 
