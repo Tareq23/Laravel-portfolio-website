@@ -7,5 +7,6 @@
     @include('components.homeBanner')
     @include('components.homeService')
     @include('components.homeCourse')
+    @include('components.homeProject')
 
 @endsection()

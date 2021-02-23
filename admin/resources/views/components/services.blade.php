@@ -140,7 +140,9 @@ function getServicesData() {
                             '<td><a class="serviceDeleteBtn" data-id=' + jsonData[idx].id + ' data-toggle="modal" ><i class="fas fa-trash-alt"></i></a></td>'
                         ).appendTo('#serviceTable');
                     });
-                    
+                    /* Pagination Added */
+                    $("#serviceDataTable").DataTable();
+                    $('.dataTables_length').addClass('bs-select');
                     $(".serviceDeleteBtn").click(function (event) {
                         var deleteId;
                         event.preventDefault();

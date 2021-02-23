@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\VisitorController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\ProjectController;
 
 
 
@@ -33,6 +34,12 @@ Route::post('/courseDelete',[CourseController::class,'courseDelete']);
 // Route::post('/')
 
 
+Route::get('/project',[ProjectController::class,'projectIndex']);
+Route::get('/allProject',[ProjectController::class,'getAllProject']);
+Route::post('/getSingleProject',[ProjectController::class,'getSingleProject']);
+Route::post('/updateProject',[ProjectController::class,'updateProject']);
+Route::post('/deleteProject',[ProjectController::class,'deleteProject']);
+Route::post('/addProject',[ProjectController::class,'addProject']);
 
 
 

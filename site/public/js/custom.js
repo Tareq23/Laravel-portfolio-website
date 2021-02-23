@@ -1,3 +1,6 @@
+
+
+
 // Owl Carousel Start..................
 
 
@@ -53,12 +56,6 @@ $(document).ready(function() {
     });
 
 });
-
-
-
-
-
-
 
 
 // Owl Carousel End..................
