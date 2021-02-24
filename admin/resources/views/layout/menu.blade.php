@@ -23,7 +23,8 @@
                     	<li> <a href="{{url('/service')}}" ><span> <i class="fas fa-globe"></i> </span><span class="hide-menu">Services</span></a></li>
                         <li> <a href="{{url('/course')}}" ><span> <i class="fas fa-book-reader"></i> </span><span class="hide-menu">Course</span></a></li>
                         <li> <a href="{{url('/project')}}" ><span> <i class="fas fa-code"></i> </span><span class="hide-menu">Project</span></a></li>
-                        <li> <a href="{{url('/contact')}}" ><span> <i class="fas fa-code"></i> </span><span class="hide-menu">Contact</span></a></li>
+                        <li> <a href="{{url('/contact')}}" ></span> <i class="fas fa-envelope-open-text"></i>  <span class="hide-menu">Contact</span></a></li>
+                        <li> <a href="{{url('/review')}}" ></span> <i class="fab fa-rev"></i>  <span class="hide-menu">Review</span></a></li>
 					</ul>
                 </nav>
             </div>

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Visitor;
 use App\Models\Services;
 use App\Models\Courses;
+use App\Models\Review;
 
 class HomeController extends Controller
 {
@@ -21,9 +22,11 @@ class HomeController extends Controller
 
         $servicesData = json_encode(Services::all(),true);
         $courseData = json_encode(Courses::orderBy('id','desc')->limit(6)->get());
+        $reviewData = json_encode(Review::all());
         return view('home',[
-            'servicesData'=>json_decode($servicesData),
-            'coursesData'=>json_decode($courseData),
+            'servicesData'=> json_decode($servicesData),
+            'coursesData'=> json_decode($courseData),
+            'reviewData' => json_decode($reviewData),
         ]);
     }
 }

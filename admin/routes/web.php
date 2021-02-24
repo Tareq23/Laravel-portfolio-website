@@ -8,6 +8,7 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ReviewController;
 
 
 
@@ -48,6 +49,10 @@ Route::get('/getAllContact',[ContactController::class,'getAllContact']);
 Route::post('/contactDetails',[ContactController::class,'contactDetails']);
 Route::post('/deleteContact',[ContactController::class,'deleteContact']);
 
-
-
+Route::get('/review',[ReviewController::class,'reviewIndex']);
+Route::get("/getAllReview",[ReviewController::class,'getAllReview']);
+Route::post('/getReviewDetails',[ReviewController::class,'getReviewDetails']);
+Route::post('/reviewUpdate',[ReviewController::class,'reviewUpdate']);
+Route::post('/deleteReview',[ReviewController::class,'deleteReview']);
+Route::post('/addReview',[ReviewController::class,'addReview']);
 
