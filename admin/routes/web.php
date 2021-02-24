@@ -7,6 +7,7 @@ use App\Http\Controllers\VisitorController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\ContactController;
 
 
 
@@ -42,7 +43,10 @@ Route::post('/deleteProject',[ProjectController::class,'deleteProject']);
 Route::post('/addProject',[ProjectController::class,'addProject']);
 
 
-
+Route::get('/contact',[ContactController::class,'contactIndex']);
+Route::get('/getAllContact',[ContactController::class,'getAllContact']);
+Route::post('/contactDetails',[ContactController::class,'contactDetails']);
+Route::post('/deleteContact',[ContactController::class,'deleteContact']);
 
 
 

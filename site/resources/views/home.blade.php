@@ -8,5 +8,6 @@
     @include('components.homeService')
     @include('components.homeCourse')
     @include('components.homeProject')
+    @include('components.homeContact')
 
 @endsection()
