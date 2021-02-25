@@ -9,50 +9,54 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\LoginController;
+
+
+Route::get('/',[HomeController::class,'homeIndex'])->middleware('loginCheck');
+Route::get('/visitor',[VisitorController::class,'visitorIndex'])->middleware('loginCheck');
 
 
 
+Route::get('/service',[ServiceController::class,'serviceIndex'])->middleware('loginCheck');
+Route::get('/getServicesData',[ServiceController::class,'getServiceAll'])->middleware('loginCheck');
+Route::post('/serviceDelete',[ServiceController::class,'serviceDelete'])->middleware('loginCheck');
+Route::post('/serviceDetails',[ServiceController::class,'singleServiceGet'])->middleware('loginCheck');
+Route::post('/serviceEdit',[ServiceController::class,'singleServiceUpdate'])->middleware('loginCheck');
+Route::post('/serviceAdd',[ServiceController::class,'singleServiceAdd'])->middleware('loginCheck');
 
 
-Route::get('/',[HomeController::class,'homeIndex']);
-Route::get('/visitor',[VisitorController::class,'visitorIndex']);
-
-
-
-Route::get('/service',[ServiceController::class,'serviceIndex']);
-Route::get('/getServicesData',[ServiceController::class,'getServiceAll']);
-Route::post('/serviceDelete',[ServiceController::class,'serviceDelete']);
-Route::post('/serviceDetails',[ServiceController::class,'singleServiceGet']);
-Route::post('/serviceEdit',[ServiceController::class,'singleServiceUpdate']);
-Route::post('/serviceAdd',[ServiceController::class,'singleServiceAdd']);
-
-
-Route::get('/course',[CourseController::class,'courseIndex']);
-Route::get('/allCourse',[CourseController::class,'allCourse']);
-Route::post('/courseDtails',[CourseController::class,'courseDetials']);
-Route::post('/courseAdd',[CourseController::class,'courseAdd']);
-Route::post('/courseUpdate',[CourseController::class,'courseUpdate']);
-Route::post('/courseDelete',[CourseController::class,'courseDelete']);
+Route::get('/course',[CourseController::class,'courseIndex'])->middleware('loginCheck');
+Route::get('/allCourse',[CourseController::class,'allCourse'])->middleware('loginCheck');
+Route::post('/courseDtails',[CourseController::class,'courseDetials'])->middleware('loginCheck');
+Route::post('/courseAdd',[CourseController::class,'courseAdd'])->middleware('loginCheck');
+Route::post('/courseUpdate',[CourseController::class,'courseUpdate'])->middleware('loginCheck');
+Route::post('/courseDelete',[CourseController::class,'courseDelete'])->middleware('loginCheck');
 // Route::post('/')
 
 
-Route::get('/project',[ProjectController::class,'projectIndex']);
-Route::get('/allProject',[ProjectController::class,'getAllProject']);
-Route::post('/getSingleProject',[ProjectController::class,'getSingleProject']);
-Route::post('/updateProject',[ProjectController::class,'updateProject']);
-Route::post('/deleteProject',[ProjectController::class,'deleteProject']);
-Route::post('/addProject',[ProjectController::class,'addProject']);
+Route::get('/project',[ProjectController::class,'projectIndex'])->middleware('loginCheck');
+Route::get('/allProject',[ProjectController::class,'getAllProject'])->middleware('loginCheck');
+Route::post('/getSingleProject',[ProjectController::class,'getSingleProject'])->middleware('loginCheck');
+Route::post('/updateProject',[ProjectController::class,'updateProject'])->middleware('loginCheck');
+Route::post('/deleteProject',[ProjectController::class,'deleteProject'])->middleware('loginCheck');
+Route::post('/addProject',[ProjectController::class,'addProject'])->middleware('loginCheck');
 
 
-Route::get('/contact',[ContactController::class,'contactIndex']);
-Route::get('/getAllContact',[ContactController::class,'getAllContact']);
-Route::post('/contactDetails',[ContactController::class,'contactDetails']);
-Route::post('/deleteContact',[ContactController::class,'deleteContact']);
+Route::get('/contact',[ContactController::class,'contactIndex'])->middleware('loginCheck');
+Route::get('/getAllContact',[ContactController::class,'getAllContact'])->middleware('loginCheck');
+Route::post('/contactDetails',[ContactController::class,'contactDetails'])->middleware('loginCheck');
+Route::post('/deleteContact',[ContactController::class,'deleteContact'])->middleware('loginCheck');
 
-Route::get('/review',[ReviewController::class,'reviewIndex']);
-Route::get("/getAllReview",[ReviewController::class,'getAllReview']);
-Route::post('/getReviewDetails',[ReviewController::class,'getReviewDetails']);
-Route::post('/reviewUpdate',[ReviewController::class,'reviewUpdate']);
-Route::post('/deleteReview',[ReviewController::class,'deleteReview']);
-Route::post('/addReview',[ReviewController::class,'addReview']);
+Route::get('/review',[ReviewController::class,'reviewIndex'])->middleware('loginCheck');
+Route::get("/getAllReview",[ReviewController::class,'getAllReview'])->middleware('loginCheck');
+Route::post('/getReviewDetails',[ReviewController::class,'getReviewDetails'])->middleware('loginCheck');
+Route::post('/reviewUpdate',[ReviewController::class,'reviewUpdate'])->middleware('loginCheck');
+Route::post('/deleteReview',[ReviewController::class,'deleteReview'])->middleware('loginCheck');
+Route::post('/addReview',[ReviewController::class,'addReview'])->middleware('loginCheck');
 
+
+
+Route::get('/login',[LoginController::class,'loginIndex']);
+Route::post('/loginCheck',[LoginController::class,'onLogin']);
+Route::post('/register',[LoginController::class,'onRegistration']);
+Route::get('/logout',[LoginController::class,'onLogout']);
