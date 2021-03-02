@@ -49,6 +49,8 @@ a.link:focus {
 }
 
 .topbar .top-navbar {
+    /* position:fixed;
+    z-index: 544; */
     min-height: 50px;
     padding: 0px 15px 0 0;
 }
@@ -588,3 +590,4 @@ sidebar navigation
     .vtabs .tabs-vertical {
         width: auto;
     }
+}

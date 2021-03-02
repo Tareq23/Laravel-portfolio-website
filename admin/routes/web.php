@@ -10,6 +10,15 @@ use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\ImageController;
+
+//Admin login logout
+Route::get('/login',[LoginController::class,'loginIndex']);
+Route::post('/loginCheck',[LoginController::class,'onLogin']);
+Route::post('/register',[LoginController::class,'onRegistration']);
+Route::get('/logout',[LoginController::class,'onLogout']);
+
 
 
 Route::get('/',[HomeController::class,'homeIndex'])->middleware('loginCheck');
@@ -54,9 +63,8 @@ Route::post('/reviewUpdate',[ReviewController::class,'reviewUpdate'])->middlewar
 Route::post('/deleteReview',[ReviewController::class,'deleteReview'])->middleware('loginCheck');
 Route::post('/addReview',[ReviewController::class,'addReview'])->middleware('loginCheck');
 
-
-
-Route::get('/login',[LoginController::class,'loginIndex']);
-Route::post('/loginCheck',[LoginController::class,'onLogin']);
-Route::post('/register',[LoginController::class,'onRegistration']);
-Route::get('/logout',[LoginController::class,'onLogout']);
+Route::get('/gallery',[GalleryController::class,'galleryIndex'])->middleware('loginCheck');
+Route::post('/uploadImage',[GalleryController::class,'imageUpload'])->middleware('loginCheck');
+Route::get('/imageJson',[GalleryController::class,'imageJson'])->middleware('loginCheck');
+Route::post('/onScrollImage',[GalleryController::class,'onScrollImage'])->middleware('loginCheck');
+Route::post('/deleteImage',[GalleryController::class,'deleteImage'])->middleware('loginCheck');

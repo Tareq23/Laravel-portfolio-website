@@ -134,13 +134,13 @@ function getReviewData()
                 //console.log(jsonReviewData);
 
                 $.each(jsonReviewData,function(idx,item){
-                    $("<tr>").html(
+                    ("<tr>").html(
                         '<td><img class="table-img" src="'+ jsonReviewData[idx].image +'" alt="Client Image"/></td>'+
                         '<td>'+ jsonReviewData[idx].name +'</td>'+
                         '<td>'+ jsonReviewData[idx].description +'</td>'+
                         '<td><a class="reviewUpdateBtn" data-id='+ jsonReviewData[idx].id +'><i class="fas fa-edit"></i></a></td>'+
                         '<td><a class="reviewDeleteBtn" data-id='+ jsonReviewData[idx].id +'><i class="fas fa-trash-alt"></i></a></td>'
-                    ).appendTo("#reviewTable");
+                    ).appendTo("#reviewTable")$;
                 });
 
                 $(".reviewUpdateBtn").click(function(){
